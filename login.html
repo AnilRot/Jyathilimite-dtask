@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Login System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Secure Login System</h1>
+        
+       
+
+        <div class="form-container">
+            
+
+            <form id="login-form" class="auth-form" method="POST" action="/login">
+                <h2>LOGIN</h2>
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" name="password" required minlength="8">
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
+
+            
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            
+            document.querySelectorAll('.auth-form').forEach(form => {
+                form.style.display = 'none';
+            });
+            
+            
+            document.getElementById(tabName + '-form').style.display = 'block';
+            
+            
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
